@@ -35,9 +35,12 @@ char* GlobalOrderError;
 //=======External Functions This Runner Calls=====
 extern void setUp(void);
 extern void tearDown(void);
+extern void test_while_loop_for_checking_the_writeData(void);
 extern void test_sendBitHigh_give_xxx_should_xxx(void);
 extern void test_sendBitLow_give_xxx_should_xxx(void);
 extern void test_readBit_give_xxx_should_xxx(void);
+extern void test_write_turnaround(void);
+extern void test_read_turnaround(void);
 extern void test_writeData_given_0xCD_and_addr_0xDEAD_and_data_0xC0_should_send_out_0xCdDEADC0(void);
 extern void test_readData_given_0xAB_and_addr_0xFACE_should_send_0xFACEAB_and_turnaround_and_receive_0xBE(void);
 
@@ -75,11 +78,14 @@ void resetTest(void)
 int main(void)
 {
   UnityBegin("test_Communication.c");
-  RUN_TEST(test_sendBitHigh_give_xxx_should_xxx, 10);
-  RUN_TEST(test_sendBitLow_give_xxx_should_xxx, 18);
-  RUN_TEST(test_readBit_give_xxx_should_xxx, 26);
-  RUN_TEST(test_writeData_given_0xCD_and_addr_0xDEAD_and_data_0xC0_should_send_out_0xCdDEADC0, 34);
-  RUN_TEST(test_readData_given_0xAB_and_addr_0xFACE_should_send_0xFACEAB_and_turnaround_and_receive_0xBE, 64);
+  RUN_TEST(test_while_loop_for_checking_the_writeData, 30);
+  RUN_TEST(test_sendBitHigh_give_xxx_should_xxx, 46);
+  RUN_TEST(test_sendBitLow_give_xxx_should_xxx, 54);
+  RUN_TEST(test_readBit_give_xxx_should_xxx, 62);
+  RUN_TEST(test_write_turnaround, 69);
+  RUN_TEST(test_read_turnaround, 77);
+  RUN_TEST(test_writeData_given_0xCD_and_addr_0xDEAD_and_data_0xC0_should_send_out_0xCdDEADC0, 85);
+  RUN_TEST(test_readData_given_0xAB_and_addr_0xFACE_should_send_0xFACEAB_and_turnaround_and_receive_0xBE, 96);
 
   CMock_Guts_MemFreeFinal();
   return (UnityEnd());

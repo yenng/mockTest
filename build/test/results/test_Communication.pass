@@ -3,31 +3,40 @@
   :path: test
   :file: test_Communication.c
 :successes:
+- :test: test_while_loop_for_checking_the_writeData
+  :line: 30
+  :message: ''
 - :test: test_sendBitHigh_give_xxx_should_xxx
-  :line: 10
+  :line: 46
   :message: ''
 - :test: test_sendBitLow_give_xxx_should_xxx
-  :line: 18
+  :line: 54
   :message: ''
 - :test: test_readBit_give_xxx_should_xxx
-  :line: 26
+  :line: 62
+  :message: ''
+- :test: test_write_turnaround
+  :line: 69
+  :message: ''
+- :test: test_read_turnaround
+  :line: 77
   :message: ''
 - :test: test_writeData_given_0xCD_and_addr_0xDEAD_and_data_0xC0_should_send_out_0xCdDEADC0
-  :line: 34
+  :line: 85
   :message: ''
-:failures:
 - :test: test_readData_given_0xAB_and_addr_0xFACE_should_send_0xFACEAB_and_turnaround_and_receive_0xBE
-  :line: 90
-  :message: Function 'setPinHigh' called earlier than expected.
+  :line: 96
+  :message: ''
+:failures: []
 :ignores: []
 :counts:
-  :total: 5
-  :passed: 4
-  :failed: 1
+  :total: 8
+  :passed: 8
+  :failed: 0
   :ignored: 0
 :stdout:
 - cddeadc0
 - '1100110111011110101011011100000'
 - abface
-- '1'
+- '10101011111110101100111'
 - ''

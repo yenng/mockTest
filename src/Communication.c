@@ -77,34 +77,22 @@ uint8_t readData(uint8_t cmd, uint16_t address){
   writeTurnaroundIO(IO_PIN);
   
   int i = 23;
-  int j = 7;
-  uint32_t  Tcmd, fullData, bData1, bData2, receivedData = 0xBE;
+  uint32_t  Tcmd, fullData, bData;
   Tcmd = cmd << 16;
   fullData = Tcmd + address;
   
-  printf("%x\n", fullData);
+  printf("%x\n", fullData);  
   while(i!=0){
-    bData1 = fullData >> i & 0x00000001;
-    if (bData1 == 0x00000000)
+    bData = fullData >> i & 0x00000001;
+    if (bData == 0x00000000)
       sendBitLow(IO_PIN);
     else 
       sendBitHigh(IO_PIN);
-    printf("%x", bData1);
+    printf("%x", bData);
+	i--;
   }
   readTurnaroundIO(IO_PIN);
-  
-  printf("\n%x\n", receivedData);
-  while(j!=0){
-    bData2 = receivedData >> i & 0x00000001;
-    if (bData2 == 0x00000000)
-      sendBitLow(IO_PIN);
-    else
-      sendBitHigh(IO_PIN);
-    printf("%x", bData2);
-    j--;
-  }
-  
-  return receivedData;  
+  return readBit(IO_PIN);  
 }
 
 
