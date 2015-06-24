@@ -3,7 +3,7 @@
 
 #define IO_PIN      4
 #define CLK_PIN     5
-
+#include <stdint.h>
 
 
 /*
